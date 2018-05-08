@@ -1,0 +1,506 @@
+@CHARSET "UTF-8";
+
+/* body {
+
+	width: 100%;
+	margin: 0px;
+	background: white;
+	background-color: #0093b7; 
+	background-image: url(../../images/editorBg2.jpg);
+	background-size: cover; 
+	background-color: white;
+	
+} */
+
+::-webkit-scrollbar {
+	width: 4px; 
+	height: 4px;
+	border: 3px solid #262626; 
+}
+::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment {
+	display: block; height: 
+	10px; 
+	background:  #00D8FF;
+}
+
+::-webkit-scrollbar-track {
+	background: #00D8FF; 
+	-webkit-border-radius: 10px; 
+	border-radius:10px; 
+	-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.2)
+}
+::-webkit-scrollbar-thumb {
+	height: 50px; 
+	width: 50px; 
+	background: #fff; 
+	-webkit-border-radius: 8px; 
+	border-radius: 8px; 
+	-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,.1)}
+
+/* #upperContainer {
+	width: 100%;
+	height: 45%;
+	text-align: center;
+	background-color: rgba(255,255,255,0.5);
+	margin-top: 60px;
+	margin: 20px auto;
+	background-color: gray;
+} */
+
+/* #playerContainer {
+	float: left;
+	width: 45%;
+	height: 95%;
+	overflow: auto;
+	text-align: center;
+	margin-top: 20px;
+	background-color: red;
+} */
+
+/* #playerBox {
+	width: 90%;
+	height: 80%;
+	padding-right: 60px;
+	text-align: center;
+	background-color: orange;
+} */
+
+/* #range-and-btn {
+	width: 360px;
+	height: 18%;
+	padding-left: 90px;
+	text-align: center;
+} */
+
+/* #plyear-btns {
+	width: 25%;
+	height: 90%;
+} */
+
+/* #player-slider {
+    -webkit-appearance: none;
+    background-color: #ffffff;
+    width: 80%;
+    height:100%;
+} */
+
+/* #p-slider {
+	width: 70%;
+	height: 30px;
+	float: right;
+} */
+
+/* #mm-canvas {
+	width: 360px;
+	height: 99%;
+	margin-left: 0px;
+} */
+
+#plyear-slicer {
+	width: 70%;
+	height: 90%;
+	
+}
+
+
+
+input {
+	
+}
+
+/* #uploadContainer {
+	float: right;
+	width: 45%;
+	text-align: center;
+	height: 95%;
+	margin-left: 300px;
+	background-color: red;
+	float: left;
+	
+} */
+
+
+#timeLineContainer {
+	float: bottom;
+}
+
+/* #dragDropZone {
+	height: 90%;
+	border: 1px solid white;
+} */
+
+/* #fileBox {
+	height: 90%;
+	overflow: auto; 
+} */
+
+/* #middle {
+	height: 50px;
+	background-color: #e6eceb;
+} */
+
+/* 아래부터 editor.css 부분 */
+
+/* 두번쨰, 네번째 트랙부분? */
+.track-odd{
+	display: inline-block;
+	width: 926px; 
+	height: 58px; 
+	/* background-color: #0477A8; */	
+	background-color: #00BFFF;
+	position: relative;
+}
+
+.track-name{
+	display:inline-block; width:38px; 
+	padding-left:8px;
+	padding-right:9px;	
+	color:#b3b3b3;
+}
+
+.main-track{
+	width: 999px; 
+	height: 60px; 
+	/* background-color: #1CC7FF;	 */	
+	border: 1px solid #0E8AFA;
+/* 	background-color: white; */
+}
+
+#firstTrack {
+	width: 1305px;
+	border: 1px solid #0477A8;
+	background-color: white;
+}
+
+.odd-track-container{
+	width: 968;
+}
+.even-track-container{
+	width:968;
+}
+
+#all-track-container{
+	width:970;
+}
+
+/* 세번쨰, 다섯번째 트랙부분? */
+.track-even{
+	display: inline-block;
+	width: 926px; 
+	height: 58px; 
+	background-color: white;		
+	position: relative;
+}
+
+audio {
+	width: 156px;
+}
+
+.verticalLine {
+ 	border-left: 2px solid #26b999;
+	z-index: 999;
+	height: 100px; 
+	display: inline;
+}
+
+.video-obj{
+	overflow:hidden;
+	display: inline-block;
+	background-color:#57C9FC;
+	/* border: 2px solid;
+	border-color: #0477A8; */
+	cursor: pointer;
+	height:56px;
+	color: #fff;
+}
+
+.trans-obj{
+	overflow:hidden;
+	display: inline-block;
+	background-color:#f2ff02;
+	/* border: 2px solid;
+	border-color: #2e2e2e; */
+	cursor: pointer;
+	height:56px;
+	color: #fff;	
+}
+
+#editorBox{
+	color: #fff;
+}
+
+.e-num{
+	width:70px;
+}
+
+#e-filter-box{
+	width:160px;
+	height:250px;
+	background-color:#fff;
+	overflow-y:scroll; 
+}
+
+.obj-thumb{
+	height: 52px ; 
+	width: auto; 
+	vertical-align: middle
+}
+
+.track-name {
+	width: 30px;
+	background-color: orange;
+	
+}
+
+.image-obj{
+	overflow:hidden;
+	display: inline-block;
+	background-color:#6547b1;
+	/* border: 2px solid;
+	border-color: #262626; */
+	cursor: pointer;
+	height:56px;
+	color: #fff;
+	position: absolute;
+}
+
+.audio-obj{
+	overflow:hidden;
+	display: inline-block;
+	background-color:#0080c0;
+	/* border: 2px solid;
+	border-color: #2e2e2e; */
+	cursor: pointer;
+	height:56px;
+	color: #fff;
+	position: absolute;
+}
+
+/* 두번째, 네번쨰 트랙 back  */
+.odd-track-container{
+	/* background-color: #7DDFFF; */
+	border: 1px solid #7DDFFF;
+	background-color: #00BFFF;
+}
+
+/* 세번째, 다섯번쨰 트랙 back  */
+.even-track-container{
+	/* background-color: #1CC7FF; */
+	border: 1px solid #7DDFFF;
+		background-color: white;
+}
+
+#timeLine {
+	/* margin: 0 auto; */
+	margin-left: 110px;
+	width:85%;
+	height: 90%;
+}
+
+#volume {
+	margin: 0px auto;
+	width: 10%;
+	height: 90%
+}
+
+/* #dragDropZone {
+	border: 2px;
+	min-height: 300px;
+	max-width: 540px;
+} */
+
+.player-editor{
+	color:#fff;
+	padding-left: 10px;
+}
+
+.player-editor-pp:hover{
+	color:#26b999;
+}
+
+/* .fileBox {
+	padding-left:5px;
+	padding-right:5px;
+	display: inline;
+} */
+
+.fileBox .fname {
+	width:94px;
+	height:15px;
+	font-size:12px;
+	color:#fff;
+}
+
+.fileBox .fimage {
+	width:156px;
+	height:auto;
+}
+
+.fileBox .fimage:hover{
+  background: #fff; 
+}
+
+.fileBox .fimage:active { 
+    background: #26b999;
+}
+
+#t-slider {
+	/* margin-left: 33px; */
+    -webkit-appearance: none;
+    background-color: orange;
+    width: 932px;
+    height:1px;
+    border:1px;
+}
+
+#t-slider::-webkit-slider-runnable-track {
+  width: 100px;
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
+  border-radius: 0px;
+  z-index: 1;
+  border: 0px solid rgba(0, 0, 0, 0);
+}
+#t-slider::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 0px solid rgba(255, 255, 255, 0);
+  height: 380px;
+  width: 2px;
+  border-radius: 5px;
+ /*  background: #ff0080; */
+ /*  background: #00b7cc;  */
+  /* background: #6fdbed; */
+  background: #c1dee7;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -2px;
+  z-index: 2000;
+  position: relative;
+}
+
+
+
+
+/* #player-slider::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: #26b999;
+    width: 8px;
+    height: 12px;
+} */
+
+#editor-vol{
+    -webkit-appearance: none;
+    width: 90px;
+}
+
+#editor-vol::-webkit-slider-runnable-track {
+    width: 90px;
+    height: 3px;
+    background: #fff;
+    border: none;
+    border-radius: 3px;
+}
+
+#editor-vol::-webkit-slider-thumb {
+     -webkit-appearance: none;
+    background-color: #26b999;
+    width: 8px;
+    height: 13px;
+    margin-top: -9px;
+}
+
+#editor-vol:focus {
+    outline: none;
+}
+
+#editor-vol:focus::-webkit-slider-runnable-track {
+    background: #fff;
+}
+
+.fa-search{
+	border-left:20px;
+	color:#26b999;
+}
+#timer{
+	color:#fff;
+	font-weight:bold;
+	font-size: 18px;
+}
+
+/* #downContainer {
+	width: 100%;
+	height: 50%;
+	overflow: auto;
+} */
+
+#logologo {
+	margin-top: 15px;
+	margin-left: 145.5px;
+}
+
+
+/*
+
+bootstrap 부분
+
+*/
+
+  .navbar-fixed-top .navbar-collapse,
+  .navbar-static-top .navbar-collapse,
+  .navbar-fixed-bottom .navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+.navbar-fixed-top {
+  max-height: 340px;
+}
+@media (max-device-width: 480px) and (orientation: landscape) {
+  .navbar-fixed-top {
+    max-height: 200px;
+  }
+}
+.container > .navbar-header,
+.container-fluid > .navbar-header,{
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+@media (min-width: 768px) {
+  .container > .navbar-header,
+  .container-fluid > .navbar-header,
+  .container > .navbar-collapse,
+  .container-fluid > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+.navbar-static-top {
+  z-index: 1000;
+  border-width: 0 0 1px;
+}
+@media (min-width: 768px) {
+  .navbar-static-top {
+    border-radius: 0;
+  }
+}
+.navbar-fixed-top,
+.navbar-fixed-bottom {
+  position: fixed;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+@media (min-width: 768px) {
+  .navbar-fixed-top,
+  .navbar-fixed-bottom {
+    border-radius: 0;
+  }
+}
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0 0 1px;
+  height: 55.7px;
+}
+

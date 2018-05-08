@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lets.eat.cancho.friend.dao.FriendMapper">
+	
+	 <!-- 친구 ID 검색 -->
+	 <select id="searchFriendId" parameterType="string" resultType="user">
+	 	select
+	 		user_id
+	 		, user_name
+	 		, user_email
+	 	from 
+	 		blog_user
+	 	where
+           user_id like '%' || #{user_id} || '%'
+	 </select>
+	 
+	 <!-- 친구 추가 -->
+	 <insert id="insertFriendId" parameterType="friend">
+	 	insert into
+	 		blog_friend
+	 		(
+		 		user_id
+	 			, friend_id
+	 		) values (
+	 			#{user_id}
+	 			, #{friend_id}
+	 		)
+	 </insert>
+	 
+	 <!-- 전체 친구 목록 불러오기 -->
+	 <select id="selectFriendList" parameterType="string" resultType="friend">
+	 	select
+	 		user_id
+	 		, friend_id
+	 	from 
+	 		blog_friend
+	 	where
+	 		user_id = #{user_id}
+	 	order by
+	 		friend_id
+	 </select>
+	 
+	  <!-- 친구 삭제 -->
+	  <delete id="deleteFriend" parameterType="string">
+	  	delete from blog_friend
+	  		where friend_id = #{friend_id}
+	  </delete>
+	 
+	 
+	 <!-- 팔로워 수 조회 -->
+	 <select id="myFollower" parameterType="String" resultType="Int">
+	 	select count(*) from
+	 		blog_friend
+	 	where
+	 		friend_id = #{user_id}
+	 </select>
+	 
+</mapper>

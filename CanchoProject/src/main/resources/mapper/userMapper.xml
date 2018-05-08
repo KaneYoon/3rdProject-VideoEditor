@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="lets.eat.cancho.user.dao.UserMapper">
+	
+	 <!-- 회원 정보 검색 -->
+	 <select id="searchUserOne" parameterType="string" resultType="user">
+	 	select
+	 		*
+	 	from 
+	 		blog_user
+	 	where
+	 		user_id = #{user_id}
+	 </select>
+	 
+	 <!-- 회원 정보 등록 -->
+	 <insert id="joinUser" parameterType="user">
+	 	insert into
+	 		blog_user
+	 		(
+		 		user_id
+	 			, user_name
+	 			, user_email
+	 			, user_password
+	 		) values (
+	 			#{user_id}
+	 			, #{user_name}
+	 			, #{user_email}
+	 			, #{user_password}
+	 		)
+	 </insert>
+	 
+	 <!-- E-mail 인증 처리 -->
+	<update id="verifyUser" parameterType="string">
+		update 
+			blog_user
+		set
+			user_verify = 'Y'
+		where
+			user_id = #{user_id}
+	</update>
+	  
+	<!-- 회원 정보 수정 -->
+	<update id="updateUser" parameterType="user">
+	 	update 
+	 		blog_user
+	 	set
+	 		user_id = #{user_id}
+	 		, user_name = #{user_name}
+	 		, user_email = #{user_email}
+	 		, user_password = #{user_password}
+	 	where 
+	 		user_id = #{user_id} 	
+	</update>
+	 
+	<!-- 휴면 계정 전환 -->
+	<update id="deleteUser" parameterType="String">
+		update 
+			blog_user
+		set
+			user_deleted = 'Y'
+		where
+			user_id = #{user_id}
+	</update>
+	
+	<!-- 계정 활성화 -->
+	<update id="activateUser" parameterType="String">
+		update 
+			blog_user
+		set
+			user_deleted = 'N'
+		where
+			user_id = #{user_id}
+	</update>
+	
+	<!-- 프로필 저장 -->
+	<insert id="writeProfile" parameterType="profile">
+		insert into
+			blog_profile
+			(
+			user_id
+			, user_email
+			, p_birthDate
+			, p_sex
+			, p_city
+			, p_country
+			, p_company
+			, p_school
+			, p_introduce
+
+			<if test="p_originalfile != null and p_savedfile != null">
+			,p_originalfile
+			,p_savedfile
+			</if>
+			)
+		values
+			(
+			#{user_id}
+			, #{user_email}
+			, #{p_birthDate}
+			, #{p_sex}
+			, #{p_city}
+			, #{p_country}
+			, #{p_company}
+			, #{p_school}
+			, #{p_introduce}
+			
+			<if test="p_originalfile != null and p_savedfile != null">
+			, #{p_originalfile}
+			, #{p_savedfile}
+			</if>
+			) 
+	</insert>
+	
+	<!-- 프로필 정보 불러오기 -->
+	<select id="readProfile" parameterType="String" resultType="profile">
+		select
+			*
+		from
+			blog_profile
+		where
+			user_id = #{user_id}
+	</select>
+	
+	<!-- 프로필 수정 -->
+	<update id="updateProfile" parameterType="profile">
+		update
+			blog_profile
+		set
+			p_birthDate = #{p_birthDate}
+			,p_sex = #{p_sex}
+			,p_city = #{p_city}
+			,p_country = #{p_country}
+			,p_company = #{p_company}
+			,p_school = #{p_school}
+			,p_introduce = #{p_introduce}
+			<if test="p_originalfile != null and p_savedfile != null">
+			,p_originalfile = #{p_originalfile}
+			,p_savedfile = #{p_savedfile}
+			</if>
+		where
+			user_id = #{user_id}
+	</update>
+	 
+</mapper>
